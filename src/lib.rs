@@ -87,6 +87,8 @@ use std::ops::{Add, AddAssign, Sub, SubAssign};
 ///
 /// **Output:** a tuple $(s,t)$ where $s=a\oplus b$ is the floating-point sum [rounded to nearest](https://en.wikipedia.org/wiki/IEEE_754#Roundings_to_nearest) and $t=a+b-(a\oplus b)$ is the floating-point error, so that $a+b=s+t$.
 pub fn two_sum<T: Float>(a: T, b: T) -> (T, T) {
+    // https://web.archive.org/web/20230122184725/https://ir.cwi.nl/pub/9159/9159D.pdf
+    // Equation (4.16) on page 15.
     let s = a + b;
     let aʹ = s - b;
     let bʹ = s - aʹ;
@@ -113,6 +115,7 @@ fn two_sub<T: Float>(a: T, b: T) -> (T, T) {
 ///
 /// **Output:** a tuple $(s,t)$ where $s=a\oplus b$ is the floating-point sum [rounded to nearest](https://en.wikipedia.org/wiki/IEEE_754#Roundings_to_nearest) and $t=a+b-(a\oplus b)$ is the floating-point error, so that $a+b=s+t$.
 pub fn fast_two_sum<T: Float>(a: T, b: T) -> (T, T) {
+    // https://web.archive.org/web/20220105073915/http://mgnet.org/~douglas/Classes/na-sc/notes/kahan.pdf
     let s = a + b;
     let bʹ = s - a;
     let δb = b - bʹ;
