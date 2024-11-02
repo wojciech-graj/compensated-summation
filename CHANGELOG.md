@@ -18,6 +18,10 @@ Types of changes:
 <!-- next-header -->
 ## [Unreleased]
 
+### Added
+
+- Implementation of `Default` for `KahanBabuska` and `KahanBabuskaNeumaier`.
+
 ## [0.3.0] - 2024-05-20
 
 ### Fixed
